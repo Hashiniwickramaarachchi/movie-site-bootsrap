@@ -1,0 +1,489 @@
+/* Custom navbar styles */
+.navbar-custom {
+    background-color: #000;         /* Black background */
+    height: 70px;                   /* Navbar height */
+    padding: 20px;                  /* Horizontal padding */
+}
+
+.navbar-brand {
+    height: 89px;
+    width: 164px;
+}
+
+.navbar-brand img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ddd;
+}
+
+.search-input {
+    width: 250px;                   /* Width of search bar */
+    height: 36px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.btn-outline-light {
+    padding: 5px 10px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-icon {
+    font-size: 1.8rem;
+    margin-left: 15px;
+}
+
+/* Hide search bar and user icon on small screens */
+@media (max-width: 768px) {
+    .search-form,
+    .user-icon {
+        display: none !important;    /* Hide search bar and user icon */
+    }
+}
+
+/* Navbar background color */
+.navbar-custom {
+    background-color: #000; /* Black background */
+}
+
+/* Ensure the background expands when the navbar is collapsed */
+.navbar-collapse {
+    background-color: #000;
+}
+
+/* Target the navbar container */
+.navbar {
+    background-color: black; /* Set the navbar background to black */
+    color: white;            /* Optional: Set text color to white for better contrast */
+}
+
+/* Custom active link style */
+.navbar-nav .nav-link.active {
+    color: yellow !important;
+    font-weight: bold;
+    border-bottom: 2px solid yellow;
+}
+
+/* Responsive carousel styles */
+.carousel-item img {
+    width: 1728;
+    height: 720;
+    object-fit: cover;
+    border-radius: 0px;
+}
+
+.text-secondary{
+    font-size: 26px;  /* Height of the text */
+    width: 40px;     /* Width of the container */
+    font-weight: bold; /* Optional: makes the text bold */
+    white-space: nowrap; /* Prevents text from wrapping */
+
+}
+
+#movieCarousel .carousel-inner img {
+    width: 291px;
+    height: 439px;
+    border-radius: 10px; /* Adjust this value for more or less rounding */
+    object-fit: cover; /* Ensures the image fits within the specified dimensions */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures cards wrap when needed */
+    gap: 15px; /* Adds space between cards */
+    justify-content: space-around; /* Distributes cards evenly */
+    padding: 15px;
+}
+
+.card {
+    width: 200px; /* Smaller width */
+    height: auto; /* Auto height for proper content display */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Ensures image and body stack vertically */
+}
+
+/* Image styles */
+.card-img-top {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Card body */
+.card-body {
+    padding: 10px;
+    text-align: center;
+    flex-grow: 1; /* Ensures the card body grows if needed */
+}
+
+/* Title and text styles */
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Blinking effect on hover */
+.card:hover {
+    animation: blink 1s infinite alternate;
+}
+
+/* Keyframes for blinking effect */
+@keyframes blink {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Responsive for mobile devices */
+@media (max-width: 768px) {
+    .card {
+        width: 150px; /* Smaller width for mobile */
+        height: auto; /* Auto height for proper display */
+    }
+}
+
+/* Contact Us Section */
+.contact-container {
+    background-color: #444;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.contact-container h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.contact-container p {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Form input fields */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #555;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Blinking effect on hover and focus for all input fields */
+.contact-form input:hover,
+.contact-form input:focus,
+.contact-form textarea:hover,
+.contact-form textarea:focus {
+    animation: blink-border 1s infinite alternate;
+}
+
+/* Keyframes for the blinking effect */
+@keyframes blink-border {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 0, 0.5); /* Yellow glow */
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(255, 255, 0, 0.9); /* Stronger yellow glow */
+    }
+}
+
+/* Submit button */
+.contact-form button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffb400;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background-color: #ff9900;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 20px 10px;
+    }
+}
+
+.footer-container {
+    width: 100%; /* Make the footer full width */
+    height: 100px; /* Adjust the height */
+    background-color: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute space between content */
+    padding: 0 20px; /* Add padding to left and right */
+}
+
+.footer-logo {
+    max-width: 100px; /* Adjust the size of the logo */
+    height: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-center-text {
+    font-size: 18px; /* Adjust font size */
+    font-weight:normal;
+    margin: 0;
+}
+
+.footer-links-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px; /* Adjust font size */
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links li a:hover {
+    color: #ffb400;
+}
+/* Dark background for the modal */
+.custom-modal {
+    background-color: #222; /* Dark color */
+    color: white;
+    border-radius: 8px;
+  }
+  
+  /* Profile icon styles */
+  .profile-icon {
+    font-size: 35px; /* Smaller icon size */
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Make close button white */
+  .btn-close {
+    background-color: transparent;
+    border: none;
+    filter: invert(1); /* Changes the close icon to white */
+  }
+  
+  /* Proportional buttons */
+  .btn-login,
+  .btn-register {
+    display: inline-block;
+    width: 120px; /* Same width for both buttons */
+    padding: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  /* Green login button */
+  .btn-login {
+    background-color: #28a745;
+    color:black;
+  }
+  
+  .btn-login:hover {
+    background-color: #218838;
+  }
+  
+  /* Yellow registration button */
+  .btn-register {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .btn-register:hover {
+    background-color: #e0a800;
+  }
+  
+  /* Center the profile icon */
+  .container {
+    margin-top: 100px;
+  }
+
+  .banner {
+    position: relative;
+    width: 100%;
+    max-width: 1728px;
+    height: auto;
+    aspect-ratio: 3 / 1; /* Ensures the aspect ratio is 3:1 */
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire banner */
+  }
+  
+  .banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  }
+
+body {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.movie-details {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.movie-details h1 {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.movie-details .year {
+  font-size: 20px;
+  color: #aaaaaa;
+}
+
+.movie-details .genre {
+  font-size: 16px;
+  color: #cccccc;
+  margin-bottom: 20px;
+}
+
+.ratings {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.imdb-rating {
+  background-color: #f5c518;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.rotten-rating {
+  background-color: #ff6347;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.movie-details h2 {
+  margin-top: 30px;
+  font-size: 24px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 5px;
+}
+
+.about {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.additional-info {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.top-cast {
+  display: flex;
+  gap: 20px;
+}
+
+.cast-member {
+  text-align: center;
+}
+
+.cast-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.cast-member p {
+  font-size: 14px;
+  margin: 0;
+}
+
+  
