@@ -13,128 +13,7 @@
     
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-        <div class="container-fluid">
-            <!-- Brand logo -->
-            <a href="#" class="navbar-brand">
-               <img src="images/2-removebg-preview 2.png">
-            </a>
-
-            <!-- Navbar toggle button for small screens -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Navbar items -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Contact Us</a>
-                    </li>
-                </ul>
-
-                <!-- Search bar and user icon -->
-                <form class="d-flex me-3 search-form">
-                    <input class="form-control me-2 search-input" type="search" placeholder="Quick Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
-                <i class="bi bi-person-circle profile-icon" data-bs-toggle="modal" data-bs-target="#profileModal"></i>
-
-<!-- Profile Modal -->
-<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content custom-modal">
-      <div class="modal-header">
-        <h5 class="modal-title" id="profileModalLabel">Welcome!</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <button type="button" class="btn btn-login mb-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-        <button type="button" class="btn btn-register" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content custom-modal">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="loginEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="loginEmail" required>
-          </div>
-          <div class="mb-3">
-            <label for="loginPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="loginPassword" required>
-          </div>
-          <button type="submit" class="btn btn-login">Login</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Register Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content custom-modal">
-      <div class="modal-header">
-        <h5 class="modal-title" id="registerModalLabel">Register</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="registerEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="registerEmail" required>
-          </div>
-          <div class="mb-3">
-            <label for="registerPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="registerPassword" required>
-          </div>
-          <div class="mb-3">
-            <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="registerConfirmPassword" required>
-          </div>
-          <button type="submit" class="btn btn-register">Register</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- JavaScript to handle modal behavior -->
-<script>
-  // Ensure proper closing behavior for modals
-  document.querySelectorAll('.modal').forEach(modal => {
-    modal.addEventListener('hidden.bs.modal', () => {
-      document.body.classList.remove('modal-open');  // Remove extra classes
-      document.querySelector('.modal-backdrop')?.remove();  // Remove backdrop manually if needed
-    });
-  });
-</script>
-
-                
-                
-            </div>
-        </div>
-    </nav>
-    <br><br>
+    <?php include('includes/nav.php'); ?>
 
     <!-- Bootstrap 5 JS Bundle (includes Popper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -272,7 +151,7 @@
     <!-- Card 1 -->
     <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
       <div class="card">
-        <a href="user.html">
+        <a href="movie.php">
           <img src="images/medium-cover (1).jpg" class="card-img-top" alt="Red One">
         </a>
         <div class="card-body">
@@ -285,7 +164,7 @@
     <!-- Card 2 -->
     <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
       <div class="card">
-        <a href="page2.html">
+        <a href="movie.php">
           <img src="images/medium-cover (2).jpg" class="card-img-top" alt="Gladiator II">
         </a>
         <div class="card-body">
@@ -298,7 +177,7 @@
     <!-- Card 3 -->
     <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
       <div class="card">
-        <a href="page3.html">
+        <a href="movie.php">
           <img src="images/medium-cover (3).jpg" class="card-img-top" alt="Venom The Last Dance">
         </a>
         <div class="card-body">
@@ -311,7 +190,7 @@
     <!-- Card 4 -->
     <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
       <div class="card">
-        <a href="page4.html">
+        <a href="movie.php">
           <img src="images/medium-cover (4).jpg" class="card-img-top" alt="Transformers One">
         </a>
         <div class="card-body">
@@ -324,7 +203,7 @@
     <!-- Card 5 -->
     <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
       <div class="card">
-        <a href="page5.html">
+        <a href="movie.php">
           <img src="images/medium-cover (5).jpg" class="card-img-top" alt="Your Fault">
         </a>
         <div class="card-body">
@@ -336,34 +215,13 @@
   </div>
 </div>
 
-<!--contact us-->
-<div class="contact-container">
-  <h2>Contact Us</h2>
-  <p>Have questions or feedback? We'd love to hear from you! Reach out to us at below comment section.</p>
-  <form class="contact-form">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="E-Mail" required>
-      <textarea placeholder="Comment" required></textarea>
-      <button type="submit">Send</button>
-  </form>
-</div>
+<!-- C O N T A C T  U S ----------->
+  <?php include('includes/contactUs.php'); ?>
 
 <br><br>
 
-     <!--footer-->
-     <div class="footer-container">
-      <img src="images/2-removebg-preview 2.png" alt="Logo" class="footer-logo" />
-      <div class="footer-content">
-          <p class="footer-center-text">CineCatch©2025</p>
-      </div>
-      <div class="footer-links-container">
-          <ul class="footer-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Contact us</a></li>
-          </ul>
-      </div>
-    </div>   
+<!-- F O O T E R - ---------------->
+  <?php include('includes/footer.php'); ?>
 
 </body>
 </html>
