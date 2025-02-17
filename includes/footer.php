@@ -6,7 +6,6 @@
     <div class="footer-links-container">
         <ul class="footer-links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="#">About us</a></li>
             <li><a href="contact.php">Contact us</a></li>
         </ul>
     </div>

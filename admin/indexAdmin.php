@@ -1,9 +1,25 @@
+<?php
+  require_once '../functions.php';
+
+  $top_movies = fetchMovies('top_rated');
+
+  //set limits for upcoming movie
+  $top_movies = array_slice($top_movies, 0, 8);
+  //empty($upcoming_movies) && 
+  if(empty($top_movies)){
+    $message = 'No movies found.';
+  } else {
+    $message =null;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>CineCatch</title>
+    <link rel="icon" href="images/CineCatchLogo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -12,12 +28,14 @@
     <div class="d-flex flex-column" style="min-height: 100vh;">
         <!-- Navbar -->
         <nav class="navbar navbar-dark bg-black">
-            <div class="container">
+            <div class="container d-flex justify-content-between align-items-center">
                 <!-- Logo inside Navbar -->
-                <a class="navbar-brand" href="#">
-                    <img src="images/2-removebg-preview 2.png" alt="Logo" class="navbar-logo">
-                </a>
-                <p class="navbar-text text-light ms-3">Home</p>
+                <div class="d-flex align-items-center">
+                    <a class="navbar-brand" href="../index.php">
+                        <img src="../images/2-removebg-preview 2.png" alt="Logo" class="navbar-logo">
+                    </a>
+                    <a class="nav-link text-light ms-3" href="../index.php">Home</a>
+                </div>
                 
                 <!-- Navbar items (bell icon, search bar, profile) -->
                 <div class="d-flex align-items-center">
@@ -32,8 +50,8 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link active" href="admin.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="manage.html">Manage Movies</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="indexAdmin.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="handleMovie.php">Manage Movies</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Analytics</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
                 </ul>
@@ -65,11 +83,17 @@
                         <h5 class="text-light">Top Movies</h5>
                         <div class="movies-box">
                             <div class="top-movies">
-                                <div class="movie-card"></div>
-                                <div class="movie-card"></div>
-                                <div class="movie-card"></div>
-                                <div class="movie-card"></div>
-                                <div class="movie-card"></div>
+                                <?php if ($message): ?>
+                                    <div class="col-12">
+                                        <div class="alert alert-warning"><?= $message ?></div>
+                                    </div>
+                                <?php else: ?>
+                                    <?php foreach ($top_movies as $movie): ?>
+                                <div class="movie-card">
+                                <img src="https://image.tmdb.org/t/p/w500<?= $movie['poster_path'] ?>" class="card-img-top" ?>
+                                </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
