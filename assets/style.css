@@ -47,6 +47,11 @@
     margin-left: 15px;
 }
 
+.dropdown-item:hover {
+  background-color: #343a40; /* Change to your preferred color */
+  color: white; /* Optional: Change text color */
+}
+
 /* Hide search bar and user icon on small screens */
 @media (max-width: 768px) {
     .search-form,

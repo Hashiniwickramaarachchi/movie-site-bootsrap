@@ -1,12 +1,30 @@
+<?php
+  require_once 'functions.php';
+
+  $upcoming_movies = fetchMovies('upcoming');
+  $now_playing_movies = fetchMovies('now_playing');
+  $latest_movies = fetchMovies('latest');
+
+  //set limits for upcoming movie
+  $upcoming_movies = array_slice($upcoming_movies, 0, 20);
+  //empty($upcoming_movies) && 
+  if(empty($upcoming_movies) && empty($now_playing_movies)){
+    $message = 'No movies found.';
+  } else {
+    $message =null;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineCatch</title>
+    <link rel="icon" href="images/CineCatchLogo.png" type="image/png">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -48,98 +66,45 @@
       <!--card set no1-->
       <div class="container">
         <div class="row">
-            <p class="text-secondary">Upcomming Movies</p>         
+            <p class="text-secondary">Upcoming Movies</p>         
         </div>
+      </div>
 
 <!-- Movie Grid Carousel -->
 <div id="movieCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-
-    <!-- First carousel item (active) -->
-    <div class="carousel-item active">
-      <div class="d-flex flex-wrap justify-content-center">
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-      </div>
+    <div class="carousel-inner">
+      <!-- Create carousel items (5 cards per item) -->
+      <?php 
+        $piece = array_chunk($upcoming_movies, 5);  // Split movies into chunks of 5
+        foreach ($piece as $index => $moviesPiece): 
+        $activeClass = ($index === 0) ? ' active' : ''; // Make the first item active 
+      ?>
+            <!-- First carousel item (active) -->
+            <div class="carousel-item <?= $activeClass ?>">
+              <div class="d-flex flex-wrap justify-content-center">
+                <?php foreach ($moviesPiece as $movie): ?>
+                    <!-- Loop through movies and display them -->
+                        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
+                          <img src="https://image.tmdb.org/t/p/w500<?= $movie['poster_path'] ?>" class="img-fluid" alt="<?= $movie['title'] ?>" style="width: 150px; height: 150px;">
+                        </div>
+                <?php endforeach; ?>
+              </div>
+            </div>
+      <?php endforeach; ?>
     </div>
 
-    <!-- Second carousel item -->
-    <div class="carousel-item">
-      <div class="d-flex flex-wrap justify-content-center">
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-      </div>
-    </div>
+      <!-- Left Controller -->
+      <a class="carousel-control-prev" href="#movieCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
 
-    <!-- Third carousel item -->
-    <div class="carousel-item">
-      <div class="d-flex flex-wrap justify-content-center">
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-      </div>
-    </div>
-
-    <!-- Fourth carousel item -->
-    <div class="carousel-item">
-      <div class="d-flex flex-wrap justify-content-center">
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-        <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-          <img src="images/medium-cover (6).jpg" class="img-fluid" alt="" style="width: 150px; height: 150px;">
-        </div>
-      </div>
-    </div>
+      <!-- Right Controller -->
+      <a class="carousel-control-next" href="#movieCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
   </div>
-
-  <!-- Left Controller -->
-  <a class="carousel-control-prev" href="#movieCarousel" role="button" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </a>
-
-  <!-- Right Controller -->
-  <a class="carousel-control-next" href="#movieCarousel" role="button" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </a>
-</div>
 
 <br><br>
 
@@ -147,78 +112,37 @@
   
   <div class="container mt-4">
     <p class="text-secondary">Latest Movies</p> 
-  <div class="row card-container">
-    <!-- Card 1 -->
-    <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-      <div class="card">
-        <a href="movie.php">
-          <img src="images/medium-cover (1).jpg" class="card-img-top" alt="Red One">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title">Red One</h5>
-          <p class="card-text">2024</p>
-        </div>
+      <div class="row card-container">
+        <!--error msg no movies-->
+        <?php if ($message): ?>
+            <div class="col-12">
+                  <div class="alert alert-warning"><?= $message ?></div>
+            </div>
+        <?php else: ?>
+          <!-- Loop through movies and display them -->
+            <?php foreach ($now_playing_movies as $movie): ?>
+                <!-- Card 1 -->
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+                  <div class="card">
+                    <a href="movie.php ? id=<?= $movie['id'] ?>">
+                      <!-- movie poster -->
+                      <img src="https://image.tmdb.org/t/p/w500<?= $movie['poster_path'] ?>" class="card-img-top" alt="<?php $movie['title'] ?>">
+                    </a>
+                    <div class="card-body">
+                      <h5 class="card-title"><?= $movie['title'] ?></h5>
+                      <p class="card-text"><?= $movie['release_date']?></p> 
+                    </div>
+                  </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
       </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-      <div class="card">
-        <a href="movie.php">
-          <img src="images/medium-cover (2).jpg" class="card-img-top" alt="Gladiator II">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title">Gladiator II</h5>
-          <p class="card-text">2024</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-      <div class="card">
-        <a href="movie.php">
-          <img src="images/medium-cover (3).jpg" class="card-img-top" alt="Venom The Last Dance">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title">Venom The Last Dance</h5>
-          <p class="card-text">2024</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-      <div class="card">
-        <a href="movie.php">
-          <img src="images/medium-cover (4).jpg" class="card-img-top" alt="Transformers One">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title">Transformers One</h5>
-          <p class="card-text">2024</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-      <div class="card">
-        <a href="movie.php">
-          <img src="images/medium-cover (5).jpg" class="card-img-top" alt="Your Fault">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title">Your Fault</h5>
-          <p class="card-text">2024</p>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
 
 <!-- C O N T A C T  U S ----------->
   <?php include('includes/contactUs.php'); ?>
 
-<br><br>
+  <br><br><br><br><br><br> 
 
 <!-- F O O T E R - ---------------->
   <?php include('includes/footer.php'); ?>

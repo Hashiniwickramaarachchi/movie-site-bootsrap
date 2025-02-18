@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>CineCatch</title>
+    <link rel="icon" href="images/CineCatchLogo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -16,8 +17,8 @@
         <nav class="navbar navbar-dark bg-black">
             <div class="container">
                 <!-- Logo inside Navbar -->
-                <a class="navbar-brand" href="#">
-                    <img src="images/2-removebg-preview 2.png" alt="Logo" class="navbar-logo">
+                <a class="navbar-brand" href="../index.php">
+                    <img src="../images/2-removebg-preview 2.png" alt="Logo" class="navbar-logo">
                 </a>
                 <p class="navbar-text text-light ms-3">Home</p>
                 
@@ -34,8 +35,8 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link " href="admin.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="manage.html">Manage Movies</a></li>
+                    <li class="nav-item"><a class="nav-link " href="indexAdmin.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="handleMovie.php">Manage Movies</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Analytics</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
                 </ul>
