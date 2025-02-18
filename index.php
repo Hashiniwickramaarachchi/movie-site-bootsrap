@@ -85,7 +85,7 @@
                 <?php foreach ($moviesPiece as $movie): ?>
                     <!-- Loop through movies and display them -->
                         <div class="p-2 col-6 col-sm-4 col-md-2 text-center">
-                          <img src="https://image.tmdb.org/t/p/w500<?= $movie['poster_path'] ?>" class="img-fluid" alt="<?= $movie['title'] ?>" style="width: 150px; height: 150px;">
+                          <img src="https://image.tmdb.org/t/p/w500<?= $movie['poster_path'] ?>" class="img-fluid" alt="<?= $movie['title'] ?>" style="width: 175px; height: 250px;">
                         </div>
                 <?php endforeach; ?>
               </div>
@@ -139,10 +139,6 @@
       </div>
   </div>
 
-<!-- C O N T A C T  U S ----------->
-  <?php include('includes/contactUs.php'); ?>
-
-  <br><br><br><br><br><br> 
 
 <!-- F O O T E R - ---------------->
   <?php include('includes/footer.php'); ?>
